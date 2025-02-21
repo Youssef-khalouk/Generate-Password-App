@@ -9,10 +9,17 @@ import time
 from datetime import datetime
 # from tkcalendar import DateEntry
 
+import ctypes
+
+# Enable high-DPI awareness
+try:
+    ctypes.windll.shcore.SetProcessDpiAwareness(1)
+except Exception as e:
+    print(f"Failed to set DPI awareness: {e}")
 
 
 root=Tk()
-root.geometry('300x600+400+10')
+root.geometry('360x600+400+10')
 root.title('Get Password')
 root.config(background='#c6c2c3')
 
@@ -47,10 +54,10 @@ x_date = app_date.strftime('%Y-%m-%d')
 #  x_time = app_date.strftime('%H:%M:%S')
 
 date_lbl =ttk.Label(root,text='Date : '+x_date,background='#c1c2c3',foreground='#E8FEFF',font=('Arial Greek',10,'bold'))
-date_lbl.place(x=10,y=40)
+date_lbl.place(x=10,y=50)
 
 time_label=ttk.Label(root,background='#c1c2c3',foreground='#E8FEFF',font=('Arial Greek',10,'bold'))
-time_label.place(x=150,y=40)
+time_label.place(x=180,y=50)
 
 def app_time(): 
     string = time.strftime('%H:%M:%S %p') 
@@ -114,7 +121,7 @@ class db_Conect :
 
 dbConect=db_Conect()
 
-filter_date_frm =LabelFrame(root,width=280,height=210,bg='#c1c2c3',bd=3,fg='blue',text='Data Save')
+filter_date_frm =LabelFrame(root,width=330,height=210,bg='#c1c2c3',bd=3,fg='blue',text='Data Save')
 filter_date_frm.place(x=10,y=380)
 
 def Table():
@@ -128,8 +135,8 @@ def Table():
     TV.heading('#1',text='Password')
     TV.heading('#2',text='Time')
     TV.column('#0',width=50)
-    TV.column('#1',width=135)
-    TV.column('#2',width=69)
+    TV.column('#1',width=150)
+    TV.column('#2',width=100)
 
     scroll_y.config(command=TV.yview)
 
