@@ -60,6 +60,8 @@ app_time()
 
 Var_0 = StringVar()
 
+# this is the function that create rundom and strong passwords by using entrynamber as the length of password 
+
 def Get_Password():
     entry_namber='{}'.format(entry_1.get())
     try:
